@@ -2,7 +2,7 @@
 
 import socket
 import sys
-from datetime import datetime
+from datetime import datetime as dt
 
 #Define Target
 if len(sys.argv) == 2:
@@ -15,11 +15,11 @@ else:
 #Add Banner
 print("-" * 50)
 print("Scanning target " + target)
-print("Time started: " + str(datetime.now()))
+print("Time started: " + str(dt.now()))
 print("-" * 50)
 
 try:
-	for port in range(21,139):
+	for port in range(1,65535):
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		socket.setdefaulttimeout(1)
 		result = s.connect_ex((target,port)) #returns an error indicator
